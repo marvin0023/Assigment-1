@@ -1,18 +1,15 @@
 #include<stdio.h>
 #include<stdint.h>
 
-extern "C" double radius_io();
-extern "C" double area_io();
-extern "C" double circumference_io();
+extern "C" double Circle();
+
 
 int main()
 {
-	double return_radius = -99.99;
-	double return_area = -99.99;
-	double return_circumference = -99.99;
+	double return_circle = -99.99;
 	
 	printf("%s", "Welcome to the circle program. This program will compute the area and the circumference of a circle: \n");
-	return_radius = radius_io();
+	return_circle = Circle();
 
 	return 0;
 }

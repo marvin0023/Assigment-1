@@ -1,38 +1,40 @@
-
-
 extern scanf
 extern printf
 
-global radius_io
-global area_io
-global circumference_io
+global Circle
 
 segment .data
-radius_io.initialmessage db "Please enter the radius of the circle: ",10, 0
+Circle.initialmessage db "Please enter the radius of the circle: ", 0
 
 Stringformat db "%s", 0
 
 eight_byte_format db "%lf", 0
 
 segment .bss
+align 64 
 
 segment .text
 
-radius_io:
+Circle:
 
 push		rbp
-mov		rbp, rsp
+mov			rbp, rsp
 
-mov qword rax, 0
+mov qword 	rax, 0
 mov 		rdi, Stringformat
-mov		rsi, .initialmessage
+mov			rsi, .initialmessage
 call		printf
 
-mov qword	rax, 0
-mov		rdi, eight_byte_format
-mov		rsi, rsp
-call 	scanf
-movsd 	xmm0, [rsp]
-pop		rax
 
+push 		qword 0
+mov qword	rax, 0
+mov			rdi, eight_byte_format
+mov			rsi, rsp
+call 		scanf
+movsd 		xmm0, [rsp]
+pop			rax
+
+
+pop 		rbp
+res
 
