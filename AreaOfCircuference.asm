@@ -17,21 +17,21 @@ segment .text
 
 Circle:
 
-push		rbp
+push    rbp
 mov			rbp, rsp
 
-mov qword 	rax, 0
-mov 		rdi, Stringformat
-mov			rsi, .initialmessage
-call		printf
+mov qword rax, 0
+mov   rdi, Stringformat
+mov   rsi, .initialmessage
+call  printf
 
 
 push 		qword 0
 mov qword	rax, 0
 mov			rdi, eight_byte_format
 mov			rsi, rsp
-call 		scanf
-movsd 		xmm0, [rsp]
+call    scanf
+movsd   xmm0, [rsp]
 pop			rax
 
 
